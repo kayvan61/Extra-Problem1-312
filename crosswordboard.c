@@ -9,7 +9,7 @@
 
 void initBoard(crosswordBoard* board, FILE* file)
 {
-	fscanf(file, "%d %d", &board->y_size, &board->x_size);
+	fscanf(file, "%d %d", &board->x_size, &board->y_size);
 	//printf("%d %d\n", board->x_size, board->y_size);
 	board->totalSize = board->x_size * board->y_size;
 
@@ -153,7 +153,7 @@ void findSymetric(crosswordBoard *board)
 			{
 				if((board->board[j + (i * board->y_size)] == '*'))
 				{
-					printf("%d %d\n", j+1, i+1);
+					printf("%d %d\n", i+1, j+1);
 				}
 				/*else if (board->board[(board->y_size - j - 1) + (i * board->y_size)] == '*')
 				{

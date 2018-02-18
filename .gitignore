@@ -1,0 +1,4 @@
+.bash*
+.profile
+.sudo_as_*
+.viminfo
