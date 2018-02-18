@@ -11,6 +11,7 @@
 #endif // win32
 
 void displayMenu();
+void runTests();
 
 int main()
 {
@@ -19,11 +20,29 @@ int main()
 	FILE *file = 0;
 	char *fileName = 0;
 	char userChoice = 'y';
+	int8_t isTests = 1;
+	char *testString = "tests";
 
 	//get filepath from user 
+	printf("Type 'tests' to run tests.\n");
 	printf("Enter the path to a file with the crossword: ");
 	fileName = malloc(sizeof(char) * 50);
 	scanf(" %s", fileName);
+
+	for(int i = 0; i < 5; i++)
+	{
+		if(fileName[i] != testString[i])
+		{
+			isTests = 0;
+			break;
+		}
+	}
+	if(isTests)
+	{
+		runTests();
+		free(fileName);
+		return 0;
+	}
 
 	//open the file
 	file = fopen(fileName, "r+");
@@ -79,4 +98,103 @@ void displayMenu(char* userChoice)
 			printf("invalid character. try again.\n");
 		}
 	} while (*userChoice != '1' && *userChoice != '2' && *userChoice != '3');
+}
+
+void runTests()
+{
+	crosswordBoard testBoard;
+	FILE* file = 0;
+	char* stringToFind;
+
+	//TEST 1
+	printf("----------STARTING TEST1---------\n\n");
+	file = fopen("test1", "r+");
+	if(file == NULL)
+	{
+		printf("failed to open file for test1\n\n");
+	}
+	initBoard(&testBoard, file);
+	stringToFind = malloc(sizeof(char) * testBoard.totalSize);
+	printBoard(&testBoard);
+	printf("\n\nFinding longest vertical word:\n\n");
+	findLongest(&testBoard);
+	printf("\n\nFinding user string:\n\n");
+	printf("enter a string to find: ");
+	scanf(" %s", stringToFind);
+	findString(&testBoard, stringToFind);
+	findSymetric(&testBoard);
+
+	destoryBoard(&testBoard);
+	free(stringToFind);
+	fclose(file);
+		
+	printf("----------END OF TEST1----------\n\n");
+        
+        printf("----------STARTING TEST2---------\n\n");
+	file = fopen("test2", "r+");
+	if(file == NULL)
+	{
+		printf("failed to open file for test2\n\n");
+	}
+	initBoard(&testBoard, file);
+	stringToFind = malloc(sizeof(char) * testBoard.totalSize);
+	printBoard(&testBoard);
+	printf("\n\nFinding longest vertical word:\n\n");
+	findLongest(&testBoard);
+	printf("\n\nFinding user string:\n\n");
+	printf("enter a string to find: ");
+	scanf(" %s", stringToFind);
+	findString(&testBoard, stringToFind);
+	findSymetric(&testBoard);
+	
+	destoryBoard(&testBoard);
+	free(stringToFind);
+	fclose(file);
+		
+	printf("----------END OF TEST2----------\n\n");
+	
+	printf("----------STARTING TEST3---------\n\n");
+	file = fopen("test3", "r+");
+	if(file == NULL)
+	{
+		printf("failed to open file for test3\n\n");
+	}
+	initBoard(&testBoard, file);
+	stringToFind = malloc(sizeof(char) * testBoard.totalSize);
+	printBoard(&testBoard);
+	printf("\n\nFinding longest vertical word:\n\n");
+	findLongest(&testBoard);
+	printf("\n\nFinding user string:\n\n");
+	printf("enter a string to find: ");
+	scanf(" %s", stringToFind);
+	findString(&testBoard, stringToFind);
+	findSymetric(&testBoard);
+	
+	destoryBoard(&testBoard);
+	free(stringToFind);
+	fclose(file);
+		
+	printf("----------END OF TEST3----------\n\n");
+	printf("----------STARTING TEST4---------\n\n");
+	file = fopen("test4", "r+");
+	if(file == NULL)
+	{
+		printf("failed to open file for test4\n\n");
+	}
+	initBoard(&testBoard, file);
+	stringToFind = malloc(sizeof(char) * testBoard.totalSize);
+	printBoard(&testBoard);
+	printf("\n\nFinding longest vertical word:\n\n");
+	findLongest(&testBoard);
+	printf("\n\nFinding user string:\n\n");
+	printf("enter a string to find: ");
+	scanf(" %s", stringToFind);
+	findString(&testBoard, stringToFind);
+	findSymetric(&testBoard);
+	
+	destoryBoard(&testBoard);
+	free(stringToFind);
+	fclose(file);
+		
+	printf("----------END OF TEST4----------\n\n");
 }
