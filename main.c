@@ -26,7 +26,7 @@ int main()
 	//get filepath from user 
 	printf("Type 'tests' to run tests.\n");
 	printf("Enter the path to a file with the crossword: ");
-	fileName = malloc(sizeof(char) * 50);
+	fileName = malloc(sizeof(char) * 128);
 	if(fileName == NULL)
 	{
 		printf("Malloc failed. Exiting program.");
