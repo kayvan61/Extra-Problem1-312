@@ -14,6 +14,11 @@ void initBoard(crosswordBoard* board, FILE* file)
 	board->totalSize = board->x_size * board->y_size;
 
 	board->board = malloc(board->totalSize * sizeof(char));
+	if(board->board == NULL)
+	{
+		printf("Malloc failed. Exiting Program.");
+		exit(-1);
+	}
 	for (int i = 0; i < board->totalSize; i++)
 	{
 		*(board->board + i) = fgetc(file);
@@ -66,6 +71,11 @@ void findLongest(crosswordBoard *board)
 		}
 	}
 	temp = malloc(sizeof(char) * maxlen+1);
+	if(temp == NULL)
+	{
+		printf("Malloc Failed. Exiting program.");
+		exit(-1);
+	}
 	temp[maxlen] = '\0';
 	for (int i = 0; i < maxlen; i++)
 	{

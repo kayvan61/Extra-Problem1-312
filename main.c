@@ -27,6 +27,11 @@ int main()
 	printf("Type 'tests' to run tests.\n");
 	printf("Enter the path to a file with the crossword: ");
 	fileName = malloc(sizeof(char) * 50);
+	if(fileName == NULL)
+	{
+		printf("Malloc failed. Exiting program.");
+		return -1;
+	}
 	scanf(" %s", fileName);
 
 	for(int i = 0; i < 5; i++)
