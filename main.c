@@ -120,6 +120,11 @@ void runTests()
 	}
 	initBoard(&testBoard, file);
 	stringToFind = malloc(sizeof(char) * testBoard.totalSize);
+	if(stringToFind == NULL)
+	{
+		printf("Malloc failed. exiting program.");
+		exit(-1);
+	}
 	printBoard(&testBoard);
 	printf("\n\nFinding longest vertical word:\n\n");
 	findLongest(&testBoard);
@@ -143,6 +148,11 @@ void runTests()
 	}
 	initBoard(&testBoard, file);
 	stringToFind = malloc(sizeof(char) * testBoard.totalSize);
+	if(stringToFind == NULL)
+	{
+		printf("Malloc failed. exiting program.");
+		exit(-1);
+	}
 	printBoard(&testBoard);
 	printf("\n\nFinding longest vertical word:\n\n");
 	findLongest(&testBoard);
@@ -166,6 +176,11 @@ void runTests()
 	}
 	initBoard(&testBoard, file);
 	stringToFind = malloc(sizeof(char) * testBoard.totalSize);
+	if(stringToFind == NULL)
+	{
+		printf("Malloc failed. exiting program.");
+		exit(-1);
+	}
 	printBoard(&testBoard);
 	printf("\n\nFinding longest vertical word:\n\n");
 	findLongest(&testBoard);
@@ -188,6 +203,11 @@ void runTests()
 	}
 	initBoard(&testBoard, file);
 	stringToFind = malloc(sizeof(char) * testBoard.totalSize);
+	if(stringToFind == NULL)
+	{
+		printf("Malloc failed. exiting program.");
+		exit(-1);
+	}
 	printBoard(&testBoard);
 	printf("\n\nFinding longest vertical word:\n\n");
 	findLongest(&testBoard);
